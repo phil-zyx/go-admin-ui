@@ -121,7 +121,8 @@ export function uploadAvatar(data) {
   return request({
     url: '/api/v1/user/avatar',
     method: 'post',
-    data: data
+    data: data,
+    headers: { 'Content-Type': 'multipart/form-data' }
   })
 }
 

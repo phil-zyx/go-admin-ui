@@ -20,7 +20,10 @@ service.interceptors.request.use(
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
       config.headers['Authorization'] = 'Bearer ' + getToken()
-      config.headers['Content-Type'] = 'application/json'
+      // while not set Content-Type, default is application/json
+      if (!config.headers['Content-Type']) {
+        config.headers['Content-Type'] = 'application/json'
+      }
     }
     return config
   },
